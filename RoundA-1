@@ -1,0 +1,16 @@
+T=int(input())
+for i in range(0,T):
+    l=input().split()
+    N=int(l[0])
+    B=int(l[1])
+    A=list(map(int,input().split()))
+    A.sort()  
+    s=0
+    c=0
+    for l in A:
+        if s+l<=B:
+            s=s+l
+            c+=1
+        else:
+            break
+    print("Case #"+str(i+1)+": "+str(c))
