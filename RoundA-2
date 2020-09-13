@@ -1,0 +1,33 @@
+from itertools import product
+T=int(input())
+for x in range(0,T):
+    N,K,P=[s for s in list(map(int,input().split()))]
+    A=[]
+    for n in range(0,N):
+        A.append(list(map(int,input().split())))
+    lst=[]
+    for i in A:
+        s=0
+        l=[]
+        for j in i:
+            s=s+j
+            l.append(s)
+        lst.append(l)
+    lst1=list(product(range(0,K+1),repeat=N))
+    r=[]
+    for l in lst1:
+        if sum(l)==P:
+            r.append(l)
+    lst1.clear()
+    for item in r:
+        s=0
+        for i in range(0,N):
+            if item[i]==0:
+                continue
+            s=s+lst[i][item[i]-1]
+        lst1.append(s)
+    lst1.sort()
+    r.clear()
+    lst.clear()
+    print("Case #"+str(x+1)+": "+str(lst1[-1]))
+        
